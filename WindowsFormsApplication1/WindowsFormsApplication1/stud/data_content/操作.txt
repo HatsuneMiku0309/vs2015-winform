@@ -1,0 +1,5 @@
+﻿重構(Refactoring):
+	選取變數 -> click right -> refactor(重構) -> rename -> add new name
+
+擷取方法(Extract Method):
+	選取片段code -> refactor -> extract method -> voidname

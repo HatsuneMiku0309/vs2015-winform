@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://114.35.57.190/soap/SimpleService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://114.35.57.190/soap/SimpleService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://114.35.57.190/soap/SimpleService">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="MySoapObject">
+        <xsd:all>
+          <xsd:element name="Author" type="xsd:string" />
+          <xsd:element name="Name" type="xsd:string" />
+          <xsd:element name="Description" type="xsd:string" />
+          <xsd:element name="Text" type="xsd:string" />
+          <xsd:element name="VoteTotal" type="xsd:int" />
+          <xsd:element name="VoteCount" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="MySoapObject2">
+        <xsd:all>
+          <xsd:element name="Author2" type="xsd:string" />
+          <xsd:element name="Name2" type="xsd:string" />
+          <xsd:element name="Description2" type="xsd:string" />
+          <xsd:element name="Text2" type="xsd:string" />
+          <xsd:element name="VoteTotal2" type="xsd:int" />
+          <xsd:element name="VoteCount2" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="MySoapObjectArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:MySoapObject2[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfString">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="OrderSearchNotUse">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="nfu_acc" type="xsd:string" />
+          <xsd:element name="nfu_pass" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="gethelloworldRequest">
+    <wsdl:part name="name" type="xsd:string" />
+    <wsdl:part name="name2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="gethelloworldResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMySoapObjectRequest">
+    <wsdl:part name="soapObjects" type="tns:MySoapObjectArray" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMySoapObjectResponse">
+    <wsdl:part name="return" type="tns:MySoapObject" />
+  </wsdl:message>
+  <wsdl:message name="test.test1Request">
+    <wsdl:part name="gg" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="test.test1Response">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="member.loginRequest">
+    <wsdl:part name="acc" type="xsd:string" />
+    <wsdl:part name="pass" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="member.loginResponse">
+    <wsdl:part name="return" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="Order.SearchNotUseRequest" />
+  <wsdl:message name="Order.SearchNotUseResponse">
+    <wsdl:part name="Data" type="xsd:string" />
+    <wsdl:part name="success" type="xsd:boolean" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Order.ChangeOrderInfoStatusRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="NowEnCount" type="xsd:int" />
+    <wsdl:part name="status" type="xsd:int" />
+    <wsdl:part name="IsCheck" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="Order.ChangeOrderInfoStatusResponse">
+    <wsdl:part name="success" type="xsd:boolean" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Order.LogSaveRequest">
+    <wsdl:part name="order_id" type="xsd:int" />
+    <wsdl:part name="order_info_id" type="xsd:int" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Order.LogSaveResponse">
+    <wsdl:part name="success" type="xsd:boolean" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Order.AddOrderInfoRequest">
+    <wsdl:part name="nfu_acc" type="xsd:string" />
+    <wsdl:part name="nfu_pass" type="xsd:string" />
+    <wsdl:part name="startEnCount" type="xsd:int" />
+    <wsdl:part name="Subtotal" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="Order.AddOrderInfoResponse">
+    <wsdl:part name="success" type="xsd:boolean" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Order.SearchOrderInfoRequest" />
+  <wsdl:message name="Order.SearchOrderInfoResponse">
+    <wsdl:part name="success" type="xsd:boolean" />
+    <wsdl:part name="OrderInfoData" type="xsd:string" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="SimpleServicePortType">
+    <wsdl:operation name="gethelloworld">
+      <wsdl:input message="tns:gethelloworldRequest" />
+      <wsdl:output message="tns:gethelloworldResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMySoapObject">
+      <documentation>Processes an array of MySoapObjects and returns one of them</documentation>
+      <wsdl:input message="tns:ProcessMySoapObjectRequest" />
+      <wsdl:output message="tns:ProcessMySoapObjectResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="test.test1">
+      <documentation>Processes an array of MySoapObjects and returns one of them</documentation>
+      <wsdl:input message="tns:test.test1Request" />
+      <wsdl:output message="tns:test.test1Response" />
+    </wsdl:operation>
+    <wsdl:operation name="member.login">
+      <documentation>Processes an array of MySoapObjects and returns one of them</documentation>
+      <wsdl:input message="tns:member.loginRequest" />
+      <wsdl:output message="tns:member.loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Order.SearchNotUse">
+      <documentation>æå°å·²ç¹³è²»åæªå®æä¹è¨å®infoå¸³èæªä½¿ç¨åä»¥é©è­ (è¿åå®ä¸ç­)</documentation>
+      <wsdl:input message="tns:Order.SearchNotUseRequest" />
+      <wsdl:output message="tns:Order.SearchNotUseResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Order.ChangeOrderInfoStatus">
+      <documentation>æ¹è®æå®è¨å®ççæ(ä½¿ç¨åç¾å¨å®å­é)</documentation>
+      <wsdl:input message="tns:Order.ChangeOrderInfoStatusRequest" />
+      <wsdl:output message="tns:Order.ChangeOrderInfoStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Order.LogSave">
+      <documentation>è¨å®logè¨é</documentation>
+      <wsdl:input message="tns:Order.LogSaveRequest" />
+      <wsdl:output message="tns:Order.LogSaveResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Order.AddOrderInfo">
+      <documentation>.NETæ°å¢è¨å®å°ç¨</documentation>
+      <wsdl:input message="tns:Order.AddOrderInfoRequest" />
+      <wsdl:output message="tns:Order.AddOrderInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Order.SearchOrderInfo">
+      <documentation>.NETæå°å°ç¨</documentation>
+      <wsdl:input message="tns:Order.SearchOrderInfoRequest" />
+      <wsdl:output message="tns:Order.SearchOrderInfoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SimpleServiceBinding" type="tns:SimpleServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="gethelloworld">
+      <soap:operation soapAction="urn:helloworld#gethelloworld" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:helloworld" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:helloworld" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMySoapObject">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/ProcessMySoapObject" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test.test1">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/test.test1" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:test.test1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:test.test1" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="member.login">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/member.login" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:member.login" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:member.login" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order.SearchNotUse">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/Order.SearchNotUse" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Order.SearchNotUse" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Order.SearchNotUse" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order.ChangeOrderInfoStatus">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/Order.ChangeOrderInfoStatus" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Order.ChangeOrderInfoStatus" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Order.ChangeOrderInfoStatus" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order.LogSave">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/Order.LogSave" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Order.LogSave" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Order.LogSave" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order.AddOrderInfo">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/Order.AddOrderInfo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Order.AddOrderInfo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Order.AddOrderInfo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Order.SearchOrderInfo">
+      <soap:operation soapAction="http://114.35.57.190/NFU_EN/pages/WebService/service.php/Order.SearchOrderInfo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Order.SearchOrderInfo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Order.SearchOrderInfo" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SimpleService">
+    <wsdl:port name="SimpleServicePort" binding="tns:SimpleServiceBinding">
+      <soap:address location="http://114.35.57.190:889/NFU_EN/pages/WebService/service.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

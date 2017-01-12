@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NFU_5200_NEW.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NFU_5200_NEW_Services_SimpleService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost/webservice/nusoap/user.php</Value>
+    </Setting>
+    <Setting Name="NFU_5200_NEW_NFU_Service_SimpleService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/AdminLTE-2.3.0/pages/webservice/service.php</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,20 @@
+﻿運算子多載(operator overloading)
+
+● operator部分看不懂的說...
+
+type n1;
+type n2;
+type n3;
+n3 = n1 + n2; 
+public static Dollar operator +(type N , type M) //此處+為實際要運算子
+												 //如運算子為-號則為-
+{
+	return ;  //回傳依照實際運算去做，不要騙人QQ
+}
+
+/* n1.ToString()  此指向為type內的ToString()方法，所以要自訂 */
+public override string ToString() //該class內的ToString()方法要自己做
+								  //override 就算不加好像也正常??
+{
+	return this.dollars.ToString(); //該class內的dollars變數(int)轉為(string)類別，此處ToString為VS原本的方法;
+}

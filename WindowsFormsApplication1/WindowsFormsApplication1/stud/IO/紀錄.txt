@@ -1,0 +1,8 @@
+﻿add references -> System.IO.Compression.FileSystem;
+
+ZipFile.CreateFromDirectory(readpath,generatecompressfile,CompressionLevel.Optimal,true);
+(來源檔案(來源不可為檔案，要是資料夾) , 輸出檔案 , 壓縮級別 , 包含資料夾)
+
+
+ ZipFile.ExtractToDirectory(generatecompressfile, extracpath);
+ (來源檔案.zip , 輸出檔案(資料夾))

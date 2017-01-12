@@ -1,0 +1,37 @@
+﻿implicitly type (var):
+	var 不可宣告為全域變數
+
+	var在vs C#為強型別(strongly typed) , 其型別由編譯器判斷和決定最佳data type
+	與 VBA or Javascript 的 var不同 , var 代表 variant type , 鬆散型別(loosely typed)
+	或稱 弱型別(weakly typed) 或稱 晚期繫結(late bound)
+
+
+ParallelOptions { MaxDegreeOfParallelism = 4 }:
+	最大平行度 (意味最大核心共同處理數量 = 4);
+
+   ●備註：
+
+	MaxDegreeOfParallelism 屬性是由 Parallel 傳遞這個 ParallelOptions 執行個體的方法呼叫會影響並行作業執行數字。 
+	
+	正屬性值限制並行作業數加入至這個設定值。 如果為 -1，則表示沒有限制同時執行作業的數目。
+
+	然而在預設情況下， For 和 ForEach 會利用基本排程器所提供的許多執行緒，因此，從預設變更 MaxDegreeOfParallelism 只限制將使用多少並行工作。
+	
+	一般來說，您不需要修改這個設定。 不過，您可以在進階使用方式案例選擇明確設定它如下所示：
+		
+		當確定您使用的特定演算法不會縮小於特定的核心數。 您可以設定屬性以避免浪費在其他核心的循環。
+		
+		您同時執行多個演算法並想要手動定義每個系統有多少可以使用。 您可以設定每一個 MaxDegreeOfParallelism 值。
+		
+		當執行緒集區的啟發學習法無法判斷執行緒的正確使用的，而且可能會插入多執行緒。 
+		例如，在長時間執行的迴圈主體反覆項目，執行緒集區可能無法區別合理的進度之差異或使用鎖定或死結，並可能無法回收加入的執行緒改善效能。 在這種情況下，您可以設定屬性來確保您不使用比合理數字更多的執行緒。
+
+//https://msdn.microsoft.com/zh-tw/library/system.threading.tasks.paralleloptions_properties(v=vs.110).aspx
+Parallel.ForEach(stdlinq, new ParallelOptions { MaxDegreeOfParallelism = 4 }, (people) =>
+/*( 資料來源 , 平行選項 , action var )*/
+/* action var 與 foreach( var i in list ) 中的 i 同樣意義 ; foreach ($list as $a) 中的 $a意義相同 */
+{
+
+	//運算內容
+
+});

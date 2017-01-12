@@ -1,0 +1,30 @@
+﻿部分 partial :
+	public partial class cname{ //partial class 可分布於不同的file
+	
+		用於 void 必須先定義 partial_method:
+			partial void name();
+
+		定義完之後:
+			partial void name()
+			{
+				//實作在這
+			};
+
+		實作完成後:
+			public void pname()
+			{
+				name(); //呼叫partial method
+			}
+	}
+
+解說:
+	所有的partial void 必須在同一個partial class下 , 否則無法call
+	partial void 必須先定義後才可以實作.
+		1.	partial void name(); 
+			//定義部分方法
+		2.	partial void name(){} 
+			//實作部分方法
+		3.	public void pname(){ name(); } 
+			//部分方法必須在同partial_class下,所以必須open public void給其他class呼叫
+
+	●所有的partial class不需在同一檔案下，but class name must identical(一致,相同)

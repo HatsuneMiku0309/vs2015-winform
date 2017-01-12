@@ -1,0 +1,5 @@
+﻿add class.cs
+	namespace自訂
+		class 需宣告為靜態 => public static class cname{}
+			void 需宣告為靜態 => public static void vname( this type tname ){}
+			// 需用 this 修飾詞 , type為要擴充(extension)的型別

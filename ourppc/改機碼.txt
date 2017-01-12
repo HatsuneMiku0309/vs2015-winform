@@ -1,0 +1,7 @@
+HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION
+
+SmartSearch.exe進位 dword 2af8
+
+如果要在VS開發環境中讓元件也可以改用IE11
+那要加入  vshost-clr2.exe
+  

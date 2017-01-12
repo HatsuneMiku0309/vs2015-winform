@@ -1,0 +1,8 @@
+﻿疊代器(Iterator)主要用來提供 foreach 迴圈持續追蹤Iterator位置,透過yield關鍵字的使用來對陣列或集合類別執行自訂反覆運作的一種方法.
+
+mybook 實作 IEnumerable 介面 , IEnumerator介面 和 GetEnumerator()方法
+
+
+IEnumerable介面 為了公開能逐一查看"非泛型"集合內容的列舉值. (所有非泛型的基底介面)
+
+foreach迴圈,內部是使用GetEnumerator()方法

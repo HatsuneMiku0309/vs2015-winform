@@ -1,0 +1,22 @@
+const or #define 的作動是將"命名常數"做值的替換，所以並不會在runtime佔用記憶體，且在C++使用const編譯器可以做debug。
+
+暗示轉換 implicit type conversion
+明確轉換 explicit type conversion
+
+結合性 associativity
+
+
+//瞭解儲存期間與範圍
+自動儲存期間 automatic storage duration
+靜態儲存期間 static storage duration
+動態儲存期間 dynamic storage duration
+
+variable creat time variable's storage duration is decide.
+
+變數的另一個特性是scope，也就是variable in code of effective(有效的) area
+
+//
+
+堆疊 stack
+
+自動變數keyword = auto ( auto is default so omission )

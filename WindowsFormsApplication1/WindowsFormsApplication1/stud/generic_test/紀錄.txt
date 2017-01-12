@@ -1,0 +1,67 @@
+﻿generic 
+/* 
+generic type: 
+	解決程式在執行時期(run time)中 型別轉換(type)所耗費的成本問題，並能增加程式碼的"可再利用性"及"型別安全"
+*/
+
+/*
+說明:
+	在compiler time先不決定變數所要使用的type , 在 run time才決定use type
+*/
+
+/*
+優化:
+	1.最佳化程式碼的可再利用性
+	2.建立在compiler time為type安全集合，提供更安全的type管理
+	3.避免run time type check 所需進行的 boxing/unboxing 轉換,提升程式執行效率
+	4.能指定class or void 作用於 Specific type (隨時轉換)
+	5.less type change and lessen run time error Chances;
+*/
+
+void:
+public void Mymethod<T>(T name)
+{
+	//generic type : T
+}
+
+void button()
+{
+	Mymethod<type>(type N);
+	//both type like ( string = string)
+}
+
+public class Myclass<T>
+{
+	public void MyClassVoid<T>( T p)
+	{
+		T temp ; //in use generic type
+	}
+}
+
+void mytestvoid(ref int q)
+{
+	q = 100; //參考 https://msdn.microsoft.com/zh-tw/library/szasx730(v=vs.120).aspx
+}
+
+void button()
+{
+	int n = 10;
+	mytestvoid(n);
+	
+	//output
+	// n = 100;
+}
+
+/*
+而 Value Type 與 Reference Type 兩者在 .Net 下的型別階層體系的差別上，
+最明顯的差別與區別方式在於，Value Type 皆繼承自 System.ValueType，
+因此如果不是繼承自 System.ValueType 的型別，都不是 Value Type。
+*/
+
+/*
+C# (或說大部份的程式語言) 會將記憶體分為兩大用途︰Stack 與 Heap。
+C# 中所有的區域變數 (不管是 Value Type 或是 Reference Type)，其內容 (變數名稱、型別與與值) 都是儲存在 Stack 中。
+Value Type 變數儲存的內容是「實值」，Reference Type 變數儲存的內容是「參考」。
+使用 new 關鍵字實體化類別的物件，其物件內容，是儲存在 Heap 中。
+Reference Type 變數中所儲存的參考，其實是指向 Heap 中的記憶體位址。
+*/
