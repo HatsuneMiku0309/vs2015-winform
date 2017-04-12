@@ -32,5 +32,15 @@ namespace NFU_Add_Order.Properties {
                 return ((string)(this["NFU_Add_Order_NFU_Service_SimpleService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.tbarusu.org/pages/WebService/Service.php")]
+        public string NFU_Add_Order_org_tbarusu_www_SimpleService {
+            get {
+                return ((string)(this["NFU_Add_Order_org_tbarusu_www_SimpleService"]));
+            }
+        }
     }
 }

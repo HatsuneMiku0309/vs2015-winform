@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NFU_Add_Order.NFU_Service;
+//using NFU_Add_Order.NFU_Service;
+using NFU_Add_Order.NFU_Service2;
 using Newtonsoft.Json.Linq;
 
 namespace NFU_Add_Order
@@ -210,8 +211,8 @@ namespace NFU_Add_Order
                     NotCatchMoney += int.Parse(Json["Subtotal"].ToString());
                 }
 
-                item.SubItems.Add(Json["nfu_acc"].ToString());
-                item.SubItems.Add(Json["nfu_pass"].ToString());
+                item.SubItems.Add(Json["nfuAccount"].ToString());
+                item.SubItems.Add(Json["nfuPassword"].ToString());
                 item.SubItems.Add(Json["startEnCount"].ToString());
                 item.SubItems.Add(Json["NowEnCount"].ToString());
                 item.SubItems.Add(Json["Subtotal"].ToString());
